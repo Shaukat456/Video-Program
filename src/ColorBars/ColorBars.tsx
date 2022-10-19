@@ -6,8 +6,8 @@ export const ColorBar: FC<{color: string; index: number}> = ({
 	index,
 }) => {
 	const {width} = useVideoConfig();
-	const barheight = 50;
-	const barWidth = width / 5;
+	const barheight = 100;
+	const barWidth = width / 4;
 	const BarLeft = width * index;
 
 	const frame = useCurrentFrame();
@@ -20,10 +20,10 @@ export const ColorBar: FC<{color: string; index: number}> = ({
 		<div
 			style={{
                 opacity:opacity,
-                backgroundColor: 'black',
+                backgroundColor: color,
 				width: barWidth,
 				height: barheight,
-				left: BarLeft,
+				left: BarLeft + index ,
 				// position: 'fixed',
 			}}
 		/>  
