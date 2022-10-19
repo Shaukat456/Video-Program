@@ -57,6 +57,10 @@ export const HelloWorld: React.FC<{
 							 {/* <Sequence from={2*5} durationInFrames={durationInFrames}>
 							 </Sequence> */}
 							 {/* The subtitle will only enter on the 75th frame. */}
+							 <Sequence from={0} durationInFrames={75}>
+							 	{/* <Subtitle /> */}
+								<ColorBars/>
+					</Sequence> 	
 							 <Sequence from={75}>
 							 	{/* <Subtitle /> */}
 								<ColorBars/>
@@ -69,4 +73,5 @@ export const HelloWorld: React.FC<{
 		
 	);
 };
-	 
+
+//line by iteration of hpd logo 

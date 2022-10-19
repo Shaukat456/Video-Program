@@ -13,7 +13,7 @@ export const ColorBars : FC =()=>{
     {colors.map((color , index)=>{
       return (
         <>
-          <Sequence from={4}>
+          <Sequence from={4*2}>
        <ColorBar  key={'black'} color={color} index={index} />
       </Sequence>
         </>
