@@ -6,6 +6,7 @@ import {
 	useCurrentFrame,
 	useVideoConfig,
 } from 'remotion';
+import { ColorBars } from './ColorBars';
 import {Logo} from './HelloWorld/Logo';
 import {Subtitle} from './HelloWorld/Subtitle';
 import {Title} from './HelloWorld/Title';
@@ -46,20 +47,26 @@ export const HelloWorld: React.FC<{
 
 	// A <AbsoluteFill> is just a absolutely positioned <div>!
 	return (
-		<AbsoluteFill style={{backgroundColor: 'white'}}>
-			<AbsoluteFill style={{opacity}}>
-				<AbsoluteFill style={{transform: `translateY(${logoTranslation}px)`}}>
-					<Logo />
-				</AbsoluteFill>
-				{/* Sequences can shift the time for its children! */}
-				<Sequence from={35}>
-					<Title titleText={titleText} titleColor={titleColor} />
-				</Sequence>
-				{/* The subtitle will only enter on the 75th frame. */}
-				<Sequence from={75}>
-					<Subtitle />
-				</Sequence>
-			</AbsoluteFill>
-		</AbsoluteFill>
+		<>
+	<div>
+
+
+						 {/* <AbsoluteFill style={{transform: `translateY(${logoTranslation}px)`}}>
+							 </AbsoluteFill> */}
+							 {/* Sequences can shift the time for its children! */}
+							 {/* <Sequence from={2*5} durationInFrames={durationInFrames}>
+							 </Sequence> */}
+							 {/* The subtitle will only enter on the 75th frame. */}
+							 <Sequence from={75}>
+							 	{/* <Subtitle /> */}
+								<ColorBars/>
+					</Sequence> 
+
+			
+
+	</div>
+				</>
+		
 	);
 };
+	 
