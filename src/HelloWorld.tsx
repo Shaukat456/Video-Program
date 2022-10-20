@@ -1,4 +1,4 @@
-import {spring , Img , staticFile } from 'remotion';
+import {spring, Img, staticFile} from 'remotion';
 import {
 	AbsoluteFill,
 	interpolate,
@@ -6,10 +6,15 @@ import {
 	useCurrentFrame,
 	useVideoConfig,
 } from 'remotion';
-import { ColorBars } from './ColorBars';
+import {ColorBars} from './ColorBars';
 import {Logo} from './HelloWorld/Logo';
 import {Subtitle} from './HelloWorld/Subtitle';
 import {Title} from './HelloWorld/Title';
+
+import {  black,red,white,yellow } from '../src/ColorBars/Colors';
+import { Directions } from './Directions';
+
+const colors= [black  , red , white, yellow]
 
 export const HelloWorld: React.FC<{
 	titleText: string;
@@ -17,8 +22,6 @@ export const HelloWorld: React.FC<{
 }> = ({titleText, titleColor}) => {
 	const frame = useCurrentFrame();
 	const {durationInFrames, fps} = useVideoConfig();
-
-
 
 	// Animate from 0 to 1 after 25 frames
 	const logoTranslationProgress = spring({
@@ -36,7 +39,6 @@ export const HelloWorld: React.FC<{
 		[0, -150]
 	);
 
-
 	// Fade out the animation at the end
 	const opacity = interpolate(
 		frame,
@@ -51,33 +53,73 @@ export const HelloWorld: React.FC<{
 	// A <AbsoluteFill> is just a absolutely positioned <div>!
 	return (
 		<>
-	<div>
-
-
-							 {/* Sequences can shift the time for its children! */}
-							 {/* <Sequence from={2*5} durationInFrames={durationInFrames}>
+			<div>
+				{/* Sequences can shift the time for its children! */}
+				{/* <Sequence from={2*5} durationInFrames={durationInFrames}>
 							 </Sequence> */}
-							 {/* The subtitle will only enter on the 75th frame. */}
-							
-							 <Sequence from={0} durationInFrames={20}>
-							  <AbsoluteFill style={{  justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "white",
-        fontSize: 80,
-				opacity:opacity}}>
-								<ColorBars/>
-								<Img src={require("./hpd.svg")} />
-								 
+				{/* The subtitle will only enter on the 75th frame. */}
+				{/* <AbsoluteFill
+						style={{
+							justifyContent: 'center',
+							alignItems: 'center',
+							backgroundColor: 'yellow',
+							textDecoration: 'underline	',
+							// color:'white',
+							fontSize: .7,
+							// opacity: opacity,
+							transition: 'all ease 5s',
+							// animation :
+						}}
+					
+					> */}
+					<Sequence durationInFrames={Infinity} from={5} >
+						
+						<AbsoluteFill 	style={
+								{
+							padding:`14px `,
+								// alignItems: 'center',
+								backgroundColor: `rgb(0, 157, 40) `,
+	
+								fontSize: 4 	,
+								// opacity: index - .2,
+								transition: 'all ease 1s',
+							}}
+							>
+			<Img src={require('./hpd.svg')} />
+						</AbsoluteFill>
+					</Sequence>
+					{Directions.map((val,index)=>{
+						return (
+							<>
+							<Sequence from={index*5} durationInFrames={Infinity}>
+					<AbsoluteFill
+						style={
+							{
+						padding:`${index *4}px `,
+							alignItems: 'center',
+							backgroundColor: `rgb(0, 157, ${index *10}) `,
 
+							fontSize: index 	,
+							transform: `scale${index * 10}`,
+							// opacity: index - .2,
+							transition: 'all ease 1s',
+						}}
+					>
+						{/* <ColorBars /> */}
+						<Img src={require('./hpd.svg')} />
+					</AbsoluteFill>
+				</Sequence>
+							</>
+						)
 
-							 </AbsoluteFill>
+					})}
+					
 			
-					</Sequence> 
+				{/* </AbsoluteFill> */}
 
-	</div>
-				</>
-		
+			</div>
+		</>
 	);
 };
 
-//line by iteration of hpd logo 
+//line by iteration of hpd logo
