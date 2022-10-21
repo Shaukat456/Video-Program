@@ -80,4 +80,24 @@ export const Directions = [
 		transition: 'all ease 5s',
 		opacity:.1,
 	},
+	{
+		// fontSize: 80,
+		transition: 'all ease 5s',
+		opacity:.1,
+	},
+	{
+		// fontSize: 80,
+		transition: 'all ease 5s',
+		opacity:.1,
+	},
+	{
+		// fontSize: 80,
+		transition: 'all ease 5s',
+		opacity:.1,
+	},
+	{
+		// fontSize: 80,
+		transition: 'all ease 5s',
+		opacity:.1,
+	},
 ];

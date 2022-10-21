@@ -11,10 +11,10 @@ import {Logo} from './HelloWorld/Logo';
 import {Subtitle} from './HelloWorld/Subtitle';
 import {Title} from './HelloWorld/Title';
 
-import {  black,red,white,yellow } from '../src/ColorBars/Colors';
-import { Directions } from './Directions';
+import {black, red, white, yellow} from '../src/ColorBars/Colors';
+import {Directions} from './Directions';
 
-const colors= [black  , red , white, yellow]
+const colors = [black, red, white, yellow];
 
 export const HelloWorld: React.FC<{
 	titleText: string;
@@ -72,7 +72,7 @@ export const HelloWorld: React.FC<{
 						}}
 					
 					> */}
-					<Sequence durationInFrames={Infinity} from={5} >
+				{/* <Sequence durationInFrames={Infinity} from={5} >
 						
 						<AbsoluteFill 	style={
 								{
@@ -87,36 +87,49 @@ export const HelloWorld: React.FC<{
 							>
 			<Img src={require('./hpd.svg')} />
 						</AbsoluteFill>
-					</Sequence>
-					{Directions.map((val,index)=>{
-						return (
-							<>
-							<Sequence from={index*5} durationInFrames={Infinity}>
-					<AbsoluteFill
-						style={
-							{
-						padding:`${index *4}px `,
-							alignItems: 'center',
-							backgroundColor: `rgb(0, 157, ${index *10}) `,
+					</Sequence> */}
+						<Sequence from={0} durationInFrames={Infinity }>
+								<AbsoluteFill
+									style={{
+										padding: `14%`,
+										// paddingTop:`23px`,
+										alignItems: 'center',
+										justifyContent:"center",
+										backgroundColor: `rgb(687, 502, 0) `,
+										color:'white',
+										transition: 'all ease 1s',
+									}}
+								>
+									{/* <ColorBars /> */}
+									<Img src={require('./hpd.svg')} />
+								</AbsoluteFill>
+							</Sequence>
+				{Directions.map((val, index) => {
+					return (
+						<>
+							<Sequence from={index+1 } durationInFrames={Infinity }>
+								<AbsoluteFill
+									style={{
+										paddingLeft: `${index *3}% `,
+										paddingTop:`${index }%`,
+										alignItems: 'center',
+										backgroundColor: `rgb(100, 123, ${(index ) *10 }) `,
+										color:'white',
+										fontSize: index,
+										// transform: `skew${index}deg`,
+										opacity: index/14,
+										transition: 'all ease 4s',
+									}}
+								>
+									{/* <ColorBars /> */}
+									<Img src={require('./hpd.svg')} />
+								</AbsoluteFill>
+							</Sequence>
+						</>
+					);
+				})}
 
-							fontSize: index 	,
-							transform: `scale${index * 10}`,
-							// opacity: index - .2,
-							transition: 'all ease 1s',
-						}}
-					>
-						{/* <ColorBars /> */}
-						<Img src={require('./hpd.svg')} />
-					</AbsoluteFill>
-				</Sequence>
-							</>
-						)
-
-					})}
-					
-			
 				{/* </AbsoluteFill> */}
-
 			</div>
 		</>
 	);
