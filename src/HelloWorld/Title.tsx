@@ -21,6 +21,7 @@ const word: React.CSSProperties = {
 export const Title: React.FC<{
 	titleText: string;
 	titleColor: string;
+	picture?:String
 }> = ({titleText, titleColor}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
@@ -49,7 +50,8 @@ export const Title: React.FC<{
 							transform: `scale(${scale})`,
 						}}
 					>
-						{t}
+						&#128077;
+						
 					</span>
 				);
 			})}
