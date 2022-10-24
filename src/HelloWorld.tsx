@@ -114,6 +114,8 @@ import {
 	useVideoConfig,
 	Sequence
 } from 'remotion';
+import { Fade } from './HelloWorld/Fade';
+import { Subtitle } from './HelloWorld/Subtitle';
 import { Title } from './HelloWorld/Title';
 
 export const HelloWorld: React.FC = () => {
@@ -158,6 +160,19 @@ export const HelloWorld: React.FC = () => {
 	// interpolate(scalePush1, [0, 1], [0, 80]) +
 	// 	interpolate(scalePush2, [0, 1], [0, 80]) +
 	// 	interpolate(scalePush3, [0, 1], [0, 80]);
+
+	const opacity = interpolate(
+		frame,
+		[durationInFrames - 25, durationInFrames - 15],
+		[1, 0],
+		{
+			extrapolateLeft: 'clamp',
+			extrapolateRight: 'clamp',
+		}
+	);
+
+
+
 	return (
 		<AbsoluteFill
 			style={{
@@ -169,9 +184,20 @@ export const HelloWorld: React.FC = () => {
 				backgroundColor: 'white',
 			}}
 		>
-	<Sequence from={ 0} durationInFrames={durationInFrames}>
+	<Sequence from={ 0} durationInFrames={50}>
 		
 					<Title titleText='' titleColor='' />
+				</Sequence>
+	{/* <Sequence from={ durationInFrames -110} durationInFrames={durationInFrames}> */}
+	<Sequence from={50} durationInFrames={durationInFrames}>
+<div style={{
+	opacity:opacity
+}}>
+
+	{/* <Subtitle/> */}
+			<Fade titleColor='' titleText=''/>
+</div>
+					{/* Fade  */}
 				</Sequence>
 			<p  style={
 				{
