@@ -1,5 +1,5 @@
 import React from 'react';
-import {spring, useCurrentFrame, useVideoConfig, interpolate} from 'remotion';
+import {spring, useCurrentFrame, useVideoConfig , interpolate} from 'remotion';
 import {FONT_FAMILY} from './constants';
 
 const title: React.CSSProperties = {
@@ -18,7 +18,7 @@ const word: React.CSSProperties = {
 	display: 'inline-block',
 };
 
-export const Title: React.FC<{
+export const Fade: React.FC<{
 	titleText: string;
 	titleColor: string;
 	picture?:String
@@ -26,10 +26,8 @@ export const Title: React.FC<{
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
 
-const opacity = interpolate(frame, [0, 30], [0, 1]);
-
 	const words = titleText.split(' ');
-
+	const opacity = interpolate(frame, [0, 30], [1,0]);
 	return (
 		<h1 style={title}>
 			{words.map((t, i) => {
@@ -37,7 +35,7 @@ const opacity = interpolate(frame, [0, 30], [0, 1]);
 
 				const scale = spring({
 					fps: videoConfig.fps,
-					frame: frame - delay,
+					frame: frame + delay,
 					config: {
 						damping: 200,
 					},
@@ -51,8 +49,8 @@ const opacity = interpolate(frame, [0, 30], [0, 1]);
 							color: titleColor,
 							height:200,
 							width:400,
-							opacity:opacity,
-							transform: `scale(${scale})`,
+							transform: `scale(${scale}/2)`,
+              opacity:opacity
 						}}
 					>
 						&#128077;
