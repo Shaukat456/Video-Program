@@ -26,6 +26,18 @@ export const Fade: React.FC<{
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
 
+
+	const { fps } = useVideoConfig();
+		
+	const bounceAnimation = spring({
+		frame: frame ,
+		from: 0,
+		to: 1,
+		fps,
+		config: { damping: 10.5, stiffness: 160, mass: 2 },
+});
+
+
 	const words = titleText.split(' ');
 	const opacity = interpolate(frame, [0, 30], [1,0]);
 	return (
@@ -49,8 +61,8 @@ export const Fade: React.FC<{
 							color: titleColor,
 							height:200,
 							width:400,
-							transform: `scale(${scale}/2)`,
-              opacity:opacity
+              opacity:opacity,
+							transform: `scale(${bounceAnimation})`,
 						}}
 					>
 						&#128077;

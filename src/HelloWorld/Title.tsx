@@ -30,6 +30,16 @@ const opacity = interpolate(frame, [0, 30], [0, 1]);
 
 	const words = titleText.split(' ');
 
+	const { fps } = useVideoConfig();
+		
+	const bounceAnimation = spring({
+		frame: frame ,
+		from: 0,
+		to: 1,
+		fps,
+		config: { damping: 10.5, stiffness: 160, mass: 0.6 },
+});
+
 	return (
 		<h1 style={title}>
 			{words.map((t, i) => {
@@ -52,7 +62,7 @@ const opacity = interpolate(frame, [0, 30], [0, 1]);
 							height:200,
 							width:400,
 							opacity:opacity,
-							transform: `scale(${scale})`,
+							transform: `scale(${bounceAnimation})`,
 						}}
 					>
 						&#128077;
