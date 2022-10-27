@@ -62,7 +62,7 @@ const opacity = interpolate(frame, [0, 30], [0, 1]);
 							height:200,
 							width:400,
 							opacity:opacity,
-							transform: `scale(${bounceAnimation})`,
+							// transform: `scale(${scale}) translateY($)`,
 						}}
 					>
 						&#128077;
