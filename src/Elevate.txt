@@ -1,0 +1,106 @@
+// import {spring, Img, staticFile} from 'remotion';
+// import {
+// 	AbsoluteFill,
+// 	interpolate,
+// 	Sequence,
+// 	useCurrentFrame,
+// 	useVideoConfig,
+// } from 'remotion';
+// import {ColorBars} from './ColorBars';
+// import {Logo} from './HelloWorld/Logo';
+// import {Subtitle} from './HelloWorld/Subtitle';
+// import {Title} from './HelloWorld/Title';
+
+// import {black, red, white, yellow} from '../src/ColorBars/Colors';
+// import {Directions} from './Directions';
+
+// const colors = [black, red, white, yellow];
+
+// export const HelloWorld: React.FC<{
+// 	titleText: string;
+// 	titleColor: string;
+// }> = ({titleText, titleColor}) => {
+// 	const frame = useCurrentFrame();
+// 	const {durationInFrames, fps} = useVideoConfig();
+
+// 	// Animate from 0 to 1 after 25 frames
+// 	const logoTranslationProgress = spring({
+// 		frame: frame - 25,
+// 		fps,
+// 		config: {
+// 			damping: 100,
+// 		},
+// 	});
+
+// 	// Move the logo up by 150 pixels once the transition starts
+// 	const logoTranslation = interpolate(
+// 		logoTranslationProgress,
+// 		[0, 1],
+// 		[0, -150]
+// 	);
+
+// 	// Fade out the animation at the end
+// 	// const opacity = interpolate(
+// 	// 	frame,
+// 	// 	[durationInFrames , durationInFrames ],
+// 	// 	[1, 0],
+// 	// 	{
+// 	// 		extrapolateLeft: 'clamp',
+// 	// 		extrapolateRight: 'clamp',
+// 	// 	}
+// 	// );
+
+// 	// A <AbsoluteFill> is just a absolutely positioned <div>!
+// 	return (
+// 		<>
+// 			<div>
+
+// 						<Sequence from={0} durationInFrames={Infinity }>
+// 								<AbsoluteFill
+// 									style={{
+// 										padding: `14%`,
+// 										// paddingTop:`23px`,
+// 										alignItems: 'center',
+// 										justifyContent:"center",
+// 										backgroundColor: `white `,
+// 										color:'white',
+// 										transition: 'all ease 1s',
+// 									}}
+// 								>
+// 									{/* <ColorBars /> */}
+// 									<Img src={require('./hpd.svg')} />
+// 								</AbsoluteFill>
+// 							</Sequence>
+
+// 				{/* {Directions.map((val, index) => {
+// 								return (
+// 						<>
+// 							<Sequence from={index+1 } durationInFrames={Infinity }>
+// 								<AbsoluteFill
+// 									style={{
+// 										paddingLeft: `${index *3}% `,
+// 										// paddingLeft: `${}% `,
+// 										paddingTop:`${index }%`,
+// 										alignItems: 'center',
+// 										backgroundColor: `rgb(100, 723, ${(index ) *10 }) `,
+// 										color:'white',
+// 										fontSize: index,
+// 										// transform: `skew${index}deg`,
+// 										// opacity: index/14,
+// 										opacity: index/14,
+// 										transition: 'all ease 4s',
+// 									}}
+// 								>
+// 									{/* <ColorBars /> */}
+// 									{/* <Img src={require('./hpd.svg')} />
+// 								</AbsoluteFill>
+// 							</Sequence>
+// 						</>
+// 					);
+// 				})} */}
+
+// 				{/* </AbsoluteFill> */}
+// 			</div>
+// 		</>
+// 	);
+// };

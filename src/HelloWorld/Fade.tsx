@@ -61,7 +61,7 @@ export const Fade: React.FC<{
 							color: titleColor,
 							height:200,
 							width:400,
-              opacity:opacity,
+              // opacity:opacity,
 							transform: `scale(${bounceAnimation})`,
 						}}
 					>
@@ -73,3 +73,6 @@ export const Fade: React.FC<{
 		</h1>
 	);
 };
+
+
+// !!!!

@@ -1,0 +1,27 @@
+
+		
+			{/* <Sequence from={0} durationInFrames={durationInFrames }>
+				<div
+					style={{
+						opacity: opacity,
+					}}
+				>
+					{/* <Subtitle/> */}
+			{/* <Fade titleColor=" " titleText="" />
+				</div>
+				{/* Fade  */}
+			{/* </Sequence> */}
+
+			{/* <p
+				style={{
+					height: 100,
+					width: 100,
+					fontSize: 50,
+					color: 'black',
+					transform: `scale(${scale}) translateY(-${Up}px)`,
+				}}
+			>
+				{/* something */}
+			{/* </p> */}
+
+			{/* <p>hello</p> */}

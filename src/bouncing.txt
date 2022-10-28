@@ -1,0 +1,119 @@
+// import {
+// 	AbsoluteFill,
+// 	interpolate,
+// 	spring,
+// 	useCurrentFrame,
+// 	useVideoConfig,
+// 	Sequence,
+// } from 'remotion';
+// import {Fade} from './HelloWorld/Fade';
+// import {Subtitle} from './HelloWorld/Subtitle';
+// import {Title} from './HelloWorld/Title';
+
+// export const HelloWorld: React.FC = () => {
+// 	const frame = useCurrentFrame();
+// 	// console.log(frame)
+// 	const {fps, durationInFrames} = useVideoConfig();
+// 	const scalePush1 = spring({
+// 		fps,
+// 		frame: frame + 100,
+// 		config: {
+// 			damping: 200,
+// 		},
+// 	});
+// 	const scalePush2 = spring({
+// 		fps,
+// 		frame: frame - 40,
+// 		config: {
+// 			damping: 200,
+// 		},
+// 	});
+// 	const scalePush3 = spring({
+// 		fps,
+// 		frame: frame - 20,
+// 		config: {
+// 			damping: 200,
+// 		},
+// 	});
+// 	// console.log('scalePush1', scalePush1);
+
+// 	const scale = scalePush1 + scalePush2 + scalePush3;
+// 	const right =
+// 		interpolate(scalePush1, [0, 1], [1000, 110]) +
+// 		interpolate(scalePush2, [0, 1], [100, 61]) +
+// 		interpolate(scalePush3, [0, 1], [120, 120]);
+
+// 	const Up =
+// 		interpolate(scalePush1, [0, 1], [-110, 70]) +
+// 		interpolate(scalePush2, [0, 1], [0, 61]) +
+// 		interpolate(scalePush3, [0, 1], [0, 80]);
+// 	// const left =
+// 	// // 0-80 represents px or value that has to be increased
+// 	// interpolate(scalePush1, [0, 1], [0, 80]) +
+// 	// 	interpolate(scalePush2, [0, 1], [0, 80]) +
+// 	// 	interpolate(scalePush3, [0, 1], [0, 80]);
+
+// 	const opacity = interpolate(
+// 		frame,
+// 		[durationInFrames - 25, durationInFrames - 15],
+// 		[1, 0],
+// 		{
+// 			extrapolateLeft: 'clamp',
+// 			extrapolateRight: 'clamp',
+// 		}
+// 	);
+
+// 	return (
+// 		<AbsoluteFill
+// 			style={{
+// 				alignItems: 'center',
+// 				justifyContent: 'flex-end',
+// 				// padding: 50,
+// 				position: 'relative',
+// 				fontSize: 40,
+// 				backgroundColor: 'white',
+// 			}}
+// 		>
+// 			{/* <Sequence from={0} durationInFrames={Infinity}>
+// 				<Title titleText="" titleColor="" />
+// 			</Sequence> */}
+// 			{/* <Sequence from={ durationInFrames -110} durationInFrames={durationInFrames}> */}
+// 			<Sequence from={0} durationInFrames={durationInFrames }>
+// 				<div
+// 					style={{
+// 						opacity: opacity,
+// 					}}
+// 				>
+// 					{/* <Subtitle/> */}
+// 					<Fade titleColor=" " titleText="" />
+// 				</div>
+// 				{/* Fade  */}
+// 			</Sequence>
+
+// 			{/* <p
+// 				style={{
+// 					height: 100,
+// 					width: 100,
+// 					fontSize: 50,
+// 					color: 'black',
+// 					transform: `scale(${scale}) translateY(-${Up}px)`,
+// 				}}
+// 			>
+// 				{/* something */}
+// 			{/* </p> */}
+
+// 			{/* <div
+// 				style={{
+// 					height: 100,
+// 					width: 100,
+// 					// backgroundColor: '#4290f5',
+// 					borderRadius: 40,
+// 					transform: `scale(${scale}) translateX(${right}px)`,
+
+// 				}}
+
+// 			/> */}
+// 			{/* <p>hello</p> */}
+// 		</AbsoluteFill>
+// 	);
+// };
